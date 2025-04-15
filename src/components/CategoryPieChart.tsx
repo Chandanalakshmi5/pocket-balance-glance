@@ -1,7 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip as RechartsTooltip } from 'recharts';
 import { useTransactions } from '@/context/TransactionContext';
 
 const CategoryPieChart: React.FC = () => {
@@ -46,7 +46,7 @@ const CategoryPieChart: React.FC = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip 
+              <RechartsTooltip 
                 formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']}
               />
               <Legend />
